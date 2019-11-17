@@ -1,0 +1,34 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <a href="https://github.com/jlweston/ngu-save-analyser/issues" target="_blank" class="ml-md-auto">Feedback</a>
+    </div>
+
+    <div class="content px-4">
+        <CascadingValue Value="this">
+            <CascadingValue Value="playerdata">
+                <CascadingValue Value="playerdataJSON">
+                    @Body
+                </CascadingValue>
+            </CascadingValue>
+        </CascadingValue>
+    </div>
+</div>
+
+@code {
+    public PlayerData playerdata { get; private set; }
+    public string playerdataJSON;
+
+    public void SetPlayerData(PlayerData pd)
+    {
+        playerdata = pd;
+        playerdataJSON = JsonConvert.SerializeObject(playerdata, Formatting.Indented);
+        StateHasChanged();
+    }
+}
