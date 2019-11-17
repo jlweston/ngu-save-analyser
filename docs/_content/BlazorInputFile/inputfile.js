@@ -13,7 +13,7 @@
                         name: file.name,
                         size: file.size,
                         type: file.type
-                    };
+                    }; 
                     elem._blazorFilesById[result.id] = result;
 
                     // Attach the blob data itself as a non-enumerable property so it doesn't appear in the JSON
