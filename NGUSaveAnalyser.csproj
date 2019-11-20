@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\Assembly-CSharp.dll" />
+    <None Include="wwwroot\inputfile.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,5 +39,11 @@
       <HintPath>assemblies\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\Assembly-CSharp.dll" />
+    <Resource Include="wwwroot\index.html" />
+  </ItemGroup>
+
 
 </Project>
