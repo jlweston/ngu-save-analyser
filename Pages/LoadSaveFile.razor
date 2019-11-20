@@ -54,6 +54,7 @@
 
         using (MemoryStream memoryStream = new MemoryStream(bytes))
         {
+            Console.WriteLine(base64Data);
             Console.WriteLine("About to return deserialised value");
             return (T)formatter.Deserialize(memoryStream);
         }
@@ -70,6 +71,7 @@
     {
 
         SaveData saveData = DeserializeBase64<SaveData>(contents);
+        Console.WriteLine(saveData);
 
         string checksum = GetChecksum(saveData.playerData);
         if (saveData.checksum != checksum)
@@ -82,31 +84,30 @@
 
     sealed class CustomBinder : SerializationBinder
     {
-    public override Type BindToType(string assemblyName, string typeName)
-    {
-    Type typeToDeserialize = null;
+        public override Type BindToType(string assemblyName, string typeName)
+        {
+            Console.WriteLine(assemblyName);
 
-    // Force assembly name so we can use 'wrong' assembly in BinaryFormatter
-    assemblyName = assemblyName.Replace("1.0.0.0", "0.0.0.0");
-    assemblyName = assemblyName.Replace("Assembly-CSharp", "NGUSaveAnalyser");
+            // Force assembly name so we can use 'wrong' assembly in BinaryFormatter
+            assemblyName = assemblyName.Replace("1.0.0.0", "0.0.0.0");
+            assemblyName = assemblyName.Replace("Assembly-CSharp", "NGUSaveAnalyser");
 
-    // The following line of code returns the type.
-    typeToDeserialize = Type.GetType(String.Format("{0}, {1}",
-    typeName, assemblyName));
+            // The following line of code returns the type.
+            Type typeToDeserialize = Type.GetType(String.Format("{0}, {1}", typeName, assemblyName));
 
-    return typeToDeserialize;
-    }
+            return typeToDeserialize;
+        }
     }
 
     void RedirectToOverview()
     {
-    NavigationManager.NavigateTo("/overview");
+        NavigationManager.NavigateTo("/overview");
     }
 
     protected async override void OnInitialized()
     {
-    var bytes = await Http.GetByteArrayAsync("/Assembly-CSharp.dll");
-    var assembly = System.Reflection.Assembly.Load(bytes);
-    //await JSRuntime.InvokeVoidAsync("initialiseStatExtractor");
+        var bytes = await Http.GetByteArrayAsync("/Assembly-CSharp.dll");
+        var assembly = System.Reflection.Assembly.Load(bytes);
+        //await JSRuntime.InvokeVoidAsync("initialiseStatExtractor");
     }
     }

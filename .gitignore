@@ -1,4 +1,5 @@
 savefile*
 bin/
+dist/
 obj/
 .vs/
