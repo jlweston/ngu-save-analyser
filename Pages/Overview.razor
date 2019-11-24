@@ -120,17 +120,11 @@ else
             <td>@(playerdata.adventure.itopod.perkLevel.ElementAt(22)*2)</td>
         </tr>
     </table>
-
-    @*<div>
-        <h2>Raw JSON output</h2>
-        @playerdataJSON
-    </div>*@
 }
 
 @code {
     [CascadingParameter] MainLayout mainlayout { get; set; }
     [CascadingParameter] PlayerData playerdata { get; set; }
-    [CascadingParameter] string playerdataJSON { get; set; }
 
     async void RedirectToUpload()
     {

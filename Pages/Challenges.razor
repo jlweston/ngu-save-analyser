@@ -1,0 +1,199 @@
+﻿@page "/challenges"
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+<div class="challenges">
+    <h1>Overview</h1>
+
+    @if (playerdata == null)
+    {
+        <h1>Oops...</h1>
+        <p>You haven't loaded a save file yet, redirecting you now.</p>
+        RedirectToUpload();
+    }
+    else
+    {
+        <h1 class="display-4">Challenges</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Challenge Name</th>
+                    <th>Fastest/Last time (mm:ss)</th>
+                    <th>Progress</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Basic</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.basicChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("basicChallenge", 25))</td>
+                </tr>
+                <tr>
+                    <td>No Augs</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.noAugsChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("noAugsChallenge", 25))</td>
+                </tr>
+                <tr>
+                    <td>24 Hour</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.hour24Challenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("hour24Challenge", 80))</td>
+                </tr>
+                <tr>
+                    <td>100 Level</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.levelChallenge10k.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("levelChallenge10k", 20))</td>
+                </tr>
+                <tr>
+                    <td>No Equipment</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.noEquipmentChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("noEquipmentChallenge", 20))</td>
+                </tr>
+                <tr>
+                    <td>Troll</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.trollChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("trollChallenge", 7))</td>
+                </tr>
+                <tr>
+                    <td>No Rebirth</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.noRebirthChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("noRebirthChallenge", 50))</td>
+                </tr>
+                <tr>
+                    <td>Laser Sword</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.laserSwordChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("laserSwordChallenge", 20))</td>
+                </tr>
+                <tr>
+                    <td>Blind</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.blindChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("blindChallenge", 10))</td>
+                </tr>
+                <tr>
+                    <td>No NGU</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.nguChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("nguChallenge", 10))</td>
+                </tr>
+                <tr>
+                    <td>No TM</td>
+                    <td>@asMinutesAndSeconds(playerdata.challenges.timeMachineChallenge.bestTime)</td>
+                    <td>@((MarkupString)GetChallengeProgress("timeMachineChallenge", 10))</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    [CascadingParameter] MainLayout mainlayout { get; set; }
+    [CascadingParameter] PlayerData playerdata { get; set; }
+
+    private string BasicProgress;
+
+    private Dictionary<string, Challenge> challenges = new Dictionary<string, Challenge>();
+
+    protected override void OnInitialized()
+    {
+        challenges.Add("basicChallenge", playerdata.challenges.basicChallenge);
+        challenges.Add("noAugsChallenge", playerdata.challenges.noAugsChallenge);
+        challenges.Add("hour24Challenge", playerdata.challenges.hour24Challenge);
+        challenges.Add("levelChallenge10k", playerdata.challenges.levelChallenge10k);
+        challenges.Add("noEquipmentChallenge", playerdata.challenges.noEquipmentChallenge);
+        challenges.Add("noRebirthChallenge", playerdata.challenges.noRebirthChallenge);
+        challenges.Add("trollChallenge", playerdata.challenges.trollChallenge);
+        challenges.Add("laserSwordChallenge", playerdata.challenges.laserSwordChallenge);
+        challenges.Add("blindChallenge", playerdata.challenges.blindChallenge);
+        challenges.Add("nguChallenge", playerdata.challenges.nguChallenge);
+        challenges.Add("timeMachineChallenge", playerdata.challenges.timeMachineChallenge);
+    }
+
+    async void RedirectToUpload()
+    {
+        await Task.Delay(2500);
+        NavigationManager.NavigateTo("/");
+    }
+
+    public static string SentenceCase(string input)
+    {
+        if (input.Length < 1)
+            return input;
+
+        string sentence = input.ToLower();
+        return sentence[0].ToString().ToUpper() +
+            sentence.Substring(1);
+    }
+
+    private string GetChallengeProgress(string challengeName, int completionsPerDifficulty)
+    {
+        // normal difficulty
+        string toReturn = "";
+        toReturn += "<span class=\"progress\">";
+
+        int sadisticCompletions = Math.Min(challenges[challengeName].curSadisticCompletions, completionsPerDifficulty);
+        int evilCompletions = Math.Min(challenges[challengeName].curEvilCompletions, completionsPerDifficulty);
+        int normalCompletions = Math.Min(challenges[challengeName].curCompletions, completionsPerDifficulty);
+
+        for (int i = 0; i < normalCompletions; i++)
+        {
+            toReturn += "<div class=\"pip green\"></div>";
+        }
+
+        if (normalCompletions < completionsPerDifficulty)
+        {
+            int missingNormalCompletions = completionsPerDifficulty - normalCompletions;
+            for (int i = 0; i < missingNormalCompletions; i++)
+            {
+                toReturn += "<div class=\"pip grey\"></div>";
+            }
+        }
+
+        toReturn += "</span>";
+
+        // evil difficulty
+        toReturn += "<span class=\"progress\">";
+
+        for (int i = 0; i < evilCompletions; i++)
+        {
+            toReturn += "<div class=\"pip yellow\"></div>";
+        }
+
+        if (evilCompletions < completionsPerDifficulty)
+        {
+            int missingEvilCompletions = completionsPerDifficulty - evilCompletions;
+            for (int i = 0; i < missingEvilCompletions; i++)
+            {
+                toReturn += "<div class=\"pip grey\"></div>";
+            }
+        }
+
+        toReturn += "</span>";
+
+        // sadistic difficulty
+        toReturn += "<span class=\"progress\">";
+
+        for (int i = 0; i < sadisticCompletions; i++)
+        {
+            toReturn += "<div class=\"pip red\"></div>";
+        }
+
+        if (sadisticCompletions < completionsPerDifficulty)
+        {
+            int missingSadisticCompletions = completionsPerDifficulty - sadisticCompletions;
+            for (int i = 0; i < missingSadisticCompletions; i++)
+            {
+                toReturn += "<div class=\"pip grey\"></div>";
+            }
+        }
+
+        toReturn += "</span>";
+
+        return toReturn;
+    }
+
+    private string asMinutesAndSeconds(int secs)
+    {
+        int minutes = (int)Math.Floor(secs / 60d);
+        string seconds = (secs % 60).ToString().PadLeft(2, '0');
+
+        return $"{minutes}:{seconds}";
+    }
+}

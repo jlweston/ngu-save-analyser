@@ -122,6 +122,36 @@ app {
 }
 
 
+.challenges {}
+
+.challenges .progress {
+    display: flex;
+}
+
+.challenges .pip {
+    border: 3px solid rgba(0,0,0,.2);
+    flex-basis: 500px;
+    flex-shrink: 1;
+    height: 8px;
+    margin: 1px;
+}
+
+.challenges .pip.red {
+    background-color: red;
+}
+
+.challenges .pip.yellow {
+    background-color: yellow;
+}
+
+.challenges .pip.green {
+    background-color: green;
+}
+
+.challenges .pip.grey {
+    background-color: grey;
+}
+
 .top-row {
     height: 3.5rem;
     display: flex;
