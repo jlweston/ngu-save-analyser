@@ -1,6 +1,6 @@
-﻿const version = 'v2';
+﻿const version = 'v3';
 
-const expectedCaches = ['static-v2'];
+const expectedCaches = ['static-v3'];
 
 const filesToCache = [
     'Assembly-CSharp.dll',
@@ -60,18 +60,29 @@ self.addEventListener('install', event => {
 
     // Cache all files from filesToCache
     event.waitUntil(
-        caches.open(`static-${version}`).then(cache => {
-            let requests = filesToCache.map((file) => {
-                console.log(`Fetching ${file}`);
-                return cache.add(file);
-            });
+        caches.keys()
+            .then(keys => Promise.all(
+                keys.map(key => {
+                    if (!expectedCaches.includes(key)) {
+                        return caches.delete(key);
+                    }
+                })
+            )
+            .then(() => {
+                caches.open(`static-v3`).then(cache => {
+                    let requests = filesToCache.map((file) => {
+                        console.log(`Fetching ${file}`);
+                        return cache.add(file);
+                    });
 
-            return Promise.all(requests)
-                .then(() => console.log("Success!"))
-                .catch((err) => console.log(err))
-        })
+                    return Promise.all(requests)
+                        .then(() => console.log("Success!"))
+                        .catch((err) => console.log(err))
+                })
+            })
+        )
     );
-}); 
+});
 
 self.addEventListener('activate', event => {
     // delete any caches that aren't in expectedCaches

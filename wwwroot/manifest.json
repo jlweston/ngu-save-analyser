@@ -4,7 +4,7 @@
   "name": "NGU Save Analyser",
   "scope": "/",
   "display": "standalone",
-  "start_url": "http://localhost:13437/",
+  "start_url": "https://ngusav.es/",
   "short_name": "NGU Saves",
   "theme_color": "transparent",
   "description": "",
