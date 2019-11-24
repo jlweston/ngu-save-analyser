@@ -66,8 +66,6 @@
 
         using (MemoryStream memoryStream = new MemoryStream(bytes))
         {
-            Console.WriteLine(base64Data);
-            Console.WriteLine("About to return deserialised value");
             return (T)formatter.Deserialize(memoryStream);
         }
     }
@@ -83,7 +81,6 @@
     {
 
         SaveData saveData = DeserializeBase64<SaveData>(contents);
-        Console.WriteLine(saveData);
 
         string checksum = GetChecksum(saveData.playerData);
         if (saveData.checksum != checksum)
@@ -98,8 +95,6 @@
     {
         public override Type BindToType(string assemblyName, string typeName)
         {
-            Console.WriteLine(assemblyName);
-
             // Force assembly name so we can use 'wrong' assembly in BinaryFormatter
             assemblyName = assemblyName.Replace("1.0.0.0", "0.0.0.0");
             assemblyName = assemblyName.Replace("Assembly-CSharp", "NGUSaveAnalyser");
