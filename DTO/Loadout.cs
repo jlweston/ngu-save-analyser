@@ -72,7 +72,6 @@ public class Loadout
 				", "
 			});
 		}
-        System.Diagnostics.Debug.WriteLine(text);
 	}
 
 	// Token: 0x04000A3E RID: 2622

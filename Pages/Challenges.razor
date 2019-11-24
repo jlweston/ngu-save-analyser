@@ -126,7 +126,7 @@
     {
         // normal difficulty
         string toReturn = "";
-        toReturn += "<span class=\"progress\">";
+        toReturn += "<span class=\"progress-wrapper\">";
 
         int sadisticCompletions = Math.Min(challenges[challengeName].curSadisticCompletions, completionsPerDifficulty);
         int evilCompletions = Math.Min(challenges[challengeName].curEvilCompletions, completionsPerDifficulty);
@@ -134,7 +134,7 @@
 
         for (int i = 0; i < normalCompletions; i++)
         {
-            toReturn += "<div class=\"pip green\"></div>";
+            toReturn += "<div class=\"pip normal\"></div>";
         }
 
         if (normalCompletions < completionsPerDifficulty)
@@ -142,18 +142,18 @@
             int missingNormalCompletions = completionsPerDifficulty - normalCompletions;
             for (int i = 0; i < missingNormalCompletions; i++)
             {
-                toReturn += "<div class=\"pip grey\"></div>";
+                toReturn += "<div class=\"pip incomplete\"></div>";
             }
         }
 
         toReturn += "</span>";
 
         // evil difficulty
-        toReturn += "<span class=\"progress\">";
+        toReturn += "<span class=\"progress-wrapper\">";
 
         for (int i = 0; i < evilCompletions; i++)
         {
-            toReturn += "<div class=\"pip yellow\"></div>";
+            toReturn += "<div class=\"pip evil\"></div>";
         }
 
         if (evilCompletions < completionsPerDifficulty)
@@ -161,18 +161,18 @@
             int missingEvilCompletions = completionsPerDifficulty - evilCompletions;
             for (int i = 0; i < missingEvilCompletions; i++)
             {
-                toReturn += "<div class=\"pip grey\"></div>";
+                toReturn += "<div class=\"pip incomplete\"></div>";
             }
         }
 
         toReturn += "</span>";
 
         // sadistic difficulty
-        toReturn += "<span class=\"progress\">";
+        toReturn += "<span class=\"progress-wrapper\">";
 
         for (int i = 0; i < sadisticCompletions; i++)
         {
-            toReturn += "<div class=\"pip red\"></div>";
+            toReturn += "<div class=\"pip sadistic\"></div>";
         }
 
         if (sadisticCompletions < completionsPerDifficulty)
@@ -180,7 +180,7 @@
             int missingSadisticCompletions = completionsPerDifficulty - sadisticCompletions;
             for (int i = 0; i < missingSadisticCompletions; i++)
             {
-                toReturn += "<div class=\"pip grey\"></div>";
+                toReturn += "<div class=\"pip incomplete\"></div>";
             }
         }
 
@@ -191,6 +191,10 @@
 
     private string asMinutesAndSeconds(int secs)
     {
+        if (secs > 2100000000 || secs == 0) // account for default completion time when no completions
+        {
+            return "N/A";
+        }
         int minutes = (int)Math.Floor(secs / 60d);
         string seconds = (secs % 60).ToString().PadLeft(2, '0');
 

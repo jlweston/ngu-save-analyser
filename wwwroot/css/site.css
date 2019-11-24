@@ -124,32 +124,32 @@ app {
 
 .challenges {}
 
-.challenges .progress {
+.challenges .progress-wrapper {
     display: flex;
 }
 
 .challenges .pip {
-    border: 3px solid rgba(0,0,0,.2);
     flex-basis: 500px;
     flex-shrink: 1;
-    height: 8px;
+    height: 1rem;
     margin: 1px;
+    width: 5px;
 }
 
-.challenges .pip.red {
-    background-color: red;
+.challenges .pip.sadistic {
+    background-color: #f80000;
 }
 
-.challenges .pip.yellow {
-    background-color: yellow;
+.challenges .pip.evil {
+    background-color: #ff9300;
 }
 
-.challenges .pip.green {
-    background-color: green;
+.challenges .pip.normal {
+    background-color: #fff200;
 }
 
-.challenges .pip.grey {
-    background-color: grey;
+.challenges .pip.incomplete {
+    background-color: #e9ecef;
 }
 
 .top-row {
