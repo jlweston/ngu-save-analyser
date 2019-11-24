@@ -1,6 +1,6 @@
-﻿const version = 'v3';
+﻿const version = 'v4';
 
-const expectedCaches = ['static-v3'];
+const expectedCaches = ['static-v4'];
 
 const filesToCache = [
     'Assembly-CSharp.dll',
@@ -26,8 +26,6 @@ const filesToCache = [
     '_framework/_bin/mscorlib.dll',
     '_framework/_bin/netstandard.dll',
     '_framework/_bin/Newtonsoft.Json.dll',
-    '_framework/_bin/NGUSaveAnalyser.dll',
-    '_framework/_bin/NGUSaveAnalyser.pdb',
     '_framework/_bin/System.Buffers.dll',
     '_framework/_bin/System.ComponentModel.Annotations.dll',
     '_framework/_bin/System.ComponentModel.Composition.dll',
@@ -69,7 +67,7 @@ self.addEventListener('install', event => {
                 })
             )
             .then(() => {
-                caches.open(`static-v3`).then(cache => {
+                caches.open(`static-v4`).then(cache => {
                     let requests = filesToCache.map((file) => {
                         console.log(`Fetching ${file}`);
                         return cache.add(file);

@@ -3,6 +3,7 @@
 // Token: 0x02000057 RID: 87
 [Serializable]
 public class Challenges
+
 {
     // Token: 0x0600064F RID: 1615 RVA: 0x000534BC File Offset: 0x000518BC
     public Challenges()
