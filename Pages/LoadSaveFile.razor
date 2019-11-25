@@ -1,27 +1,29 @@
 ﻿@page "/"
-@*@inject IJSRuntime JSRuntime;*@
 @inject HttpClient Http
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-<h1 class="display-4">NGU Save Analyser</h1>
+<div class="load-save-file container">
+    <h1 class="display-4">NGU Save Analyser</h1>
 
-<h1>Intro</h1>
+    <h1>Intro</h1>
 
-<p>This tool was created to allow you to easily see various stats and get insights into your current progress in NGU IDLE. The stats are currently quite basic but eventually you'll be able to see most things that can be calculated from your save file.</p>
-<p><strong>Note:</strong> the tool can only calculate information from a single save file, which is a snapshot in time, therefore it can't do anything that involves comparisons against earlier saves.</p>
-<p>If you have any ideas for items that could be displayed, please provide feedback via the link in the top right corner.</p>
+    <p>This tool was created to allow you to easily see various stats and get insights into your current progress in NGU IDLE. The stats are currently quite basic but eventually you'll be able to see most things that can be calculated from your save file.</p>
+    <p><strong>Note:</strong> the tool can only calculate information from a single save file, which is a snapshot in time, therefore it can't do anything that involves comparisons against earlier saves.</p>
+    <p>If you have any ideas for items that could be displayed, please provide feedback via the link in the top right corner.</p>
 
-<h1>Instructions</h1>
-<p>To get started, use one of the following methods to load your save file:</p>
-<ul>
-    <li>drag your save file onto the box below</li>
-    <li>click and search for your save file</li>
-</ul>
-<p>Note: the file name will look something like 'NGUSave-Build-1002-November-15-20-03.txt'. The file extension (.txt) might be missing but the save file will still load.</p>
+    <h1>Instructions</h1>
+    <p>To get started, use one of the following methods to load your save file:</p>
+    <ul>
+        <li>drag your save file onto the box below</li>
+        <li>click and search for your save file</li>
+    </ul>
+    <p>If you want to load a different save, just come back to this page and repeat the same steps.</p>
+    <p><strong>Note:</strong> the file name will look something like 'NGUSave-Build-1002-November-15-20-03.txt'. The file extension (.txt) might be missing but the save file will still load.</p>
 
-<div class="drag-drop-zone">
-    <InputFile OnChange="HandleFileSelected" />
-    @status
+    <div class="drag-drop-zone">
+        <InputFile OnChange="HandleFileSelected" />
+        @status
+    </div>
 </div>
 
 @code {
@@ -54,7 +56,7 @@
             }
 
             status = DefaultStatus;
-            RedirectToOverview();
+            NavigationManager.NavigateTo("/summary");
         }
     }
 
@@ -104,11 +106,6 @@
 
             return typeToDeserialize;
         }
-    }
-
-    void RedirectToOverview()
-    {
-        NavigationManager.NavigateTo("/overview");
     }
 
     protected async override void OnInitialized()
