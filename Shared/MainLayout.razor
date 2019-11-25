@@ -1,4 +1,4 @@
-﻿@inherits LayoutComponentBase
+﻿@inherits MainLayoutBase
 @inject NavigationManager NavigationManager
 
 <div class="sidebar">
@@ -20,15 +20,3 @@
         </CascadingValue>
     </div>
 </div>
-
-@code {
-    public PlayerData playerdata { get; private set; }
-    public string playerdataJSON;
-
-    public void SetPlayerData(PlayerData pd)
-    {
-        playerdata = pd;
-        playerdataJSON = JsonConvert.SerializeObject(playerdata, Formatting.Indented);
-        StateHasChanged();
-    }
-}
