@@ -1,0 +1,126 @@
+﻿@page "/yggdrasil"
+@inherits YggdrasilBase
+
+<div class="yggdrasil container">
+    @if (playerdata == null)
+    {
+        <h1>Oops...</h1>
+        <p>You haven't loaded a save file yet, redirecting you now.</p>
+    }
+    else
+    {
+        <h1 class="display-4">Yggdrasil</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fruit</th>
+                    <th>Tier</th>
+                    <th>Harvest mode</th>
+                    <th>Using poop</th>
+                    <th>Seeds spent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fruit of Gold</td>
+                    <td>@fruits[0].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[0])</td>
+                    <td>@fruits[0].usePoop</td>
+                    <td>@TotalSeedsSpent(0)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Power α</td>
+                    <td>@fruits[1].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[1])</td>
+                    <td>@fruits[1].usePoop</td>
+                    <td>@TotalSeedsSpent(1)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Adventure</td>
+                    <td>@fruits[2].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[2])</td>
+                    <td>@fruits[2].usePoop</td>
+                    <td>@TotalSeedsSpent(2)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Knowledge</td>
+                    <td>@fruits[3].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[3])</td>
+                    <td>@fruits[3].usePoop</td>
+                    <td>@TotalSeedsSpent(3)</td>
+                </tr>
+                <tr>
+                    <td>Pomegranate</td>
+                    <td>@fruits[4].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[4])</td>
+                    <td>@fruits[4].usePoop</td>
+                    <td>@TotalSeedsSpent(4)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Luck</td>
+                    <td>@fruits[5].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[5])</td>
+                    <td>@fruits[5].usePoop</td>
+                    <td>@TotalSeedsSpent(5)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Power β</td>
+                    <td>@fruits[6].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[6])</td>
+                    <td>@fruits[6].usePoop</td>
+                    <td>@TotalSeedsSpent(6)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Arbitrariness</td>
+                    <td>@fruits[7].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[7])</td>
+                    <td>@fruits[7].usePoop</td>
+                    <td>@TotalSeedsSpent(7)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Numbers</td>
+                    <td>@fruits[8].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[8])</td>
+                    <td>@fruits[8].usePoop</td>
+                    <td>@TotalSeedsSpent(8)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Rage</td>
+                    <td>@fruits[9].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[9])</td>
+                    <td>@fruits[9].usePoop</td>
+                    <td>@TotalSeedsSpent(9)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of MacGuffin α</td>
+                    <td>@fruits[10].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[10])</td>
+                    <td>@fruits[10].usePoop</td>
+                    <td>@TotalSeedsSpent(10)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of Power δ</td>
+                    <td>@fruits[11].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[11])</td>
+                    <td>@fruits[11].usePoop</td>
+                    <td>@TotalSeedsSpent(11)</td>
+                </tr>
+                <tr>
+                    <td>Watermelon</td>
+                    <td>@fruits[12].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[12])</td>
+                    <td>@fruits[12].usePoop</td>
+                    <td>@TotalSeedsSpent(12)</td>
+                </tr>
+                <tr>
+                    <td>Fruit of MacGuffin β</td>
+                    <td>@fruits[13].maxTier</td>
+                    <td>@CheckHarvestMode(fruits[13])</td>
+                    <td>@fruits[13].usePoop</td>
+                    <td>@TotalSeedsSpent(13)</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>

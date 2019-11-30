@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace NGUSaveAnalyser.Pages
@@ -9,7 +6,6 @@ namespace NGUSaveAnalyser.Pages
     public class SummaryBase : ComponentBase
     {
         [Inject] NavigationManager NavigationManager { get; set; }
-
         [CascadingParameter] protected PlayerData playerdata { get; set; }
 
         protected async override void OnInitialized()

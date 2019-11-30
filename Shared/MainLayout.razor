@@ -1,22 +1,22 @@
 ﻿@inherits MainLayoutBase
 @inject NavigationManager NavigationManager
 
-<div class="sidebar">
-    <NavMenu />
-</div>
+<CascadingValue Value="this">
+    <CascadingValue Value="playerdata">
+        <CascadingValue Value="playerdataJSON">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
 
-<div class="main">
-    <div class="top-row px-4">
-        <a href="https://github.com/jlweston/ngu-save-analyser/issues" target="_blank" class="ml-md-auto">Feedback</a>
-    </div>
+            <div class="main">
+                <div class="top-row px-4">
+                    <a href="https://github.com/jlweston/ngu-save-analyser/issues" target="_blank" class="ml-md-auto">Feedback</a>
+                </div>
 
-    <div class="content px-4">
-        <CascadingValue Value="this">
-            <CascadingValue Value="playerdata">
-                <CascadingValue Value="playerdataJSON">
+                <div class="content px-4">
                     @Body
-                </CascadingValue>
-            </CascadingValue>
+                </div>
+            </div>
         </CascadingValue>
-    </div>
-</div>
+    </CascadingValue>
+</CascadingValue>
