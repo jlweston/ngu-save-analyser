@@ -44,7 +44,7 @@ namespace NGUSaveAnalyser.Pages
         protected int TotalSeedsSpent(int fruit)
         {
             var tiers = fruits[fruit].maxTier;
-            var total = (int)(tiers * (tiers + 1) / 2);
+            var total = (int)(tiers * (tiers + 1) * ((2 * tiers) + 1) / 6);
             var baseCost = baseCosts[fruit];
             return baseCost * total;
         }
