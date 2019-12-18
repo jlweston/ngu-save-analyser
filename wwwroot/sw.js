@@ -1,6 +1,6 @@
-﻿const version = 'v4';
+﻿const version = 'v5';
 
-const expectedCaches = ['static-v4'];
+const expectedCaches = ['static-v5'];
 
 const filesToCache = [
     'Assembly-CSharp.dll',
@@ -67,7 +67,7 @@ self.addEventListener('install', event => {
                 })
             )
             .then(() => {
-                caches.open(`static-v4`).then(cache => {
+                caches.open(`static-v5`).then(cache => {
                     let requests = filesToCache.map((file) => {
                         console.log(`Fetching ${file}`);
                         return cache.add(file);

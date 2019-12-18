@@ -14,8 +14,18 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Read save file
             </NavLink>
         </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="load">
+                <span class="oi oi-plus" aria-hidden="true"></span> Load shared file
+            </NavLink>
+        </li>
         @if (SaveFileLoaded)
         {
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="share">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Share your stats
+                </NavLink>
+            </li>
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="summary">
                     <span class="oi oi-plus" aria-hidden="true"></span> Summary

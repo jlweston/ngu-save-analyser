@@ -1,0 +1,20 @@
+﻿@page "/share"
+
+@inherits ShareLoadedFileBase
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+@if (SaveId == null)
+{
+    <p>Loading...</p>
+
+}
+else
+{
+    <div class="load-shared-file container">
+        <h1>Share your stats</h1>
+
+        <p>Your stats have been uploaded and can be viewed at the link below.</p>
+        <p>The link will expire in around 60 minutes.</p>
+        <p>https://ngusav.es/load/@SaveId</p>
+    </div>
+}

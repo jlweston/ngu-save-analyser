@@ -1,0 +1,19 @@
+﻿@page "/load"
+@page "/load/{SaveId}"
+
+@inherits LoadSharedFileBase
+@inject HttpClient Http
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+@if(SaveId == null)
+{
+    <div class="load-shared-file container">
+        <h1>Load shared save file</h1>
+
+        <p>If you can see this page, you're doing it wrong.</p>
+        <p>You can't visit this page directly - instead, use the link that was shared with you. It looks something like this: https://ngusav.es/load/93Bu18CE1.</p>
+    </div>
+} else
+{
+    <p>Loading...</p>
+}
