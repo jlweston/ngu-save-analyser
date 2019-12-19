@@ -1,24 +1,25 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using System;
+using NGUSaveAnalyser.Shared;
 
 namespace NGUSaveAnalyser.Pages
 {
     public class ShareLoadedFileBase : ComponentBase
     {
-        protected string SaveId = "";
         [CascadingParameter] string playerdatajson { get; set; }
-        [CascadingParameter] PlayerData playerdata { get; set; }
         [Inject] IJSRuntime JSRuntime { get; set; }
+        [CascadingParameter] MainLayout mainlayout { get; set; }
+        protected string saveId = null;
 
-        bool loading = false;
 
         protected override async void OnParametersSet()
         {
-            if (playerdata != null && loading == false)
+            saveId = mainlayout.saveId;
+            if (mainlayout.ownSaveLoaded && !mainlayout.ownSaveShared)
             {
-                loading = true;
-                SaveId = await JSRuntime.InvokeAsync<string>("postPlayerData", playerdatajson);
+                saveId = await JSRuntime.InvokeAsync<string>("postPlayerData", playerdatajson);
+                mainlayout.SetOwnSaveShared(true);
+                mainlayout.SetOwnSaveId(saveId);
                 StateHasChanged();
             }
         }

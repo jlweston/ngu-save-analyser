@@ -3,10 +3,9 @@
 @inherits ShareLoadedFileBase
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-@if (SaveId == "")
+@if (saveId == null)
 {
     <p>Loading...</p>
-
 }
 else
 {
@@ -15,6 +14,6 @@ else
 
         <p>Your stats have been uploaded and can be viewed at the link below.</p>
         <p>The link will expire in around 60 minutes.</p>
-        <p>https://ngusav.es/load/@SaveId</p>
+        <p>https://ngusav.es/load/@saveId</p>
     </div>
 }
