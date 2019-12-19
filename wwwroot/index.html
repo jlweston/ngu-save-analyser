@@ -8,6 +8,32 @@
     <link rel='manifest' href='/manifest.json'>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
+    <script>
+        window.postPlayerData = async (playerdata) => {
+            const response = await fetch('https://api.ngusav.es/save', {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify(playerdata)
+            })
+            const result = await response.json();
+            console.log(result);
+            return result.SaveId;
+        };
+        window.getPlayerData = async (saveId) => {
+            try {
+                const response = await fetch(`https://api.ngusav.es/load/${saveId}`)
+                const result = await response.json();
+                console.log(result);
+                return result;
+            } catch (err) {
+                console.log(err.message);
+            }
+
+        };
+    </script>
 </head>
 <body>
     <app>

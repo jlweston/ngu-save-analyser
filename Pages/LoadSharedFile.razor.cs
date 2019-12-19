@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using NGUSaveAnalyser.Shared;
 using System;
 using System.Net.Http;
@@ -12,24 +13,17 @@ namespace NGUSaveAnalyser.Pages
         [Inject] NavigationManager NavigationManager { get; set; }
         [Inject] HttpClient Http { get; set; }
         [CascadingParameter] MainLayout mainlayout { get; set; }
-        [CascadingParameter] PlayerData playerdata { get; set; }
-        
+        [Inject] IJSRuntime JSRuntime { get; set; }
+
         protected override async void OnParametersSet()
         {
             if(SaveId != null)
             {
-                PlayerData data;
-                using (HttpClient client = new HttpClient())
-                {
-                    String response = await client.GetStringAsync($"https://api.ngusav.es/load/{SaveId}");
-
-                    data = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerData>(response);
-                }
-
+                var response = await JSRuntime.InvokeAsync<string>("getPlayerData", SaveId);
+                PlayerData data = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerData>(response);
                 mainlayout.SetPlayerData(data);
                 NavigationManager.NavigateTo("/summary");
             }
-
         }
     }
 }

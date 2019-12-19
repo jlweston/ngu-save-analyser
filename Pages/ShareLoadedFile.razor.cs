@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
-using System.Net.Http;
-using System.Text;
 
 namespace NGUSaveAnalyser.Pages
 {
     public class ShareLoadedFileBase : ComponentBase
     {
-        public string SaveId = null;
+        protected string SaveId = "";
         [CascadingParameter] string playerdatajson { get; set; }
         [CascadingParameter] PlayerData playerdata { get; set; }
-        [Inject] HttpClient HttpClient { get; set; }
+        [Inject] IJSRuntime JSRuntime { get; set; }
 
         bool loading = false;
 
@@ -19,17 +18,8 @@ namespace NGUSaveAnalyser.Pages
             if (playerdata != null && loading == false)
             {
                 loading = true;
-                var response = string.Empty;
-                Uri u = new Uri("https://api.ngusav.es/save");
-
-                HttpContent c = new StringContent(playerdatajson, Encoding.UTF8, "text/plain");
-
-                string result = await HttpClient.PostJsonAsync<string>("https://api.ngusav.es/save", playerdatajson);
-                //if (result.IsSuccessStatusCode)
-                //{
-                //response = result.Content.ToString();
-                SaveId = result;
-                //}
+                SaveId = await JSRuntime.InvokeAsync<string>("postPlayerData", playerdatajson);
+                StateHasChanged();
             }
         }
     }

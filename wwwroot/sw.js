@@ -99,11 +99,16 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+    const myAPIUrl = 'api.ngusav.es';
+    if (event.request.url.indexOf(myAPIUrl) !== -1) { return; }
+
     event.respondWith(async function () {
+
         // Try to get the response from a cache.
         const cachedResponse = await caches.match(event.request);
         // Return it if we found one.
         if (cachedResponse) return cachedResponse;
+
         // If we didn't find a match in the cache, use the network.
         return fetch(event.request);
     }());
