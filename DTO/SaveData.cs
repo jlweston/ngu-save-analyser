@@ -1,19 +1,19 @@
 ﻿using System;
 
-// Token: 0x0200011D RID: 285
+// Token: 0x02000128 RID: 296
 [Serializable]
 public class SaveData
 {
-	// Token: 0x0600111E RID: 4382 RVA: 0x000F95A4 File Offset: 0x000F79A4
-	public SaveData(string data, string checksumString)
-	{
-		this.playerData = data;
-		this.checksum = checksumString;
-	}
+    // Token: 0x060011ED RID: 4589 RVA: 0x001003C8 File Offset: 0x000FE7C8
+    public SaveData(string data, string checksumString)
+    {
+        this.playerData = data;
+        this.checksum = checksumString;
+    }
 
-	// Token: 0x04000CFF RID: 3327
-	public string playerData;
+    // Token: 0x04000D50 RID: 3408
+    public string playerData;
 
-	// Token: 0x04000D00 RID: 3328
-	public string checksum;
+    // Token: 0x04000D51 RID: 3409
+    public string checksum;
 }

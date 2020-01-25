@@ -1,6 +1,6 @@
-﻿const version = 'v5';
+﻿const version = 'v6';
 
-const expectedCaches = ['static-v5'];
+const expectedCaches = ['static-v6'];
 
 const filesToCache = [
     'Assembly-CSharp.dll',

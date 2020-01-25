@@ -1,232 +1,241 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200011B RID: 283
+// Token: 0x02000126 RID: 294
 [Serializable]
 public class PlayerData
 {
-    // Token: 0x04000CAD RID: 3245
+    // Token: 0x04000CFD RID: 3325
     public string playerName;
 
-    // Token: 0x04000CAE RID: 3246
+    // Token: 0x04000CFE RID: 3326
     public bool firstTimePlaying;
 
-    // Token: 0x04000CAF RID: 3247
+    // Token: 0x04000CFF RID: 3327
     public int version;
 
-    // Token: 0x04000CB0 RID: 3248
+    // Token: 0x04000D00 RID: 3328
     public int lastTime;
 
-    // Token: 0x04000CB1 RID: 3249
+    // Token: 0x04000D01 RID: 3329
     public difficulty nextRebirthDifficulty;
 
-    // Token: 0x04000CB2 RID: 3250
+    // Token: 0x04000D02 RID: 3330
     public double maxHP;
 
-    // Token: 0x04000CB3 RID: 3251
+    // Token: 0x04000D03 RID: 3331
     public double curHP;
 
-    // Token: 0x04000CB4 RID: 3252
+    // Token: 0x04000D04 RID: 3332
     public double hpRegen;
 
-    // Token: 0x04000CB5 RID: 3253
+    // Token: 0x04000D05 RID: 3333
     public double attack;
 
-    // Token: 0x04000CB6 RID: 3254
+    // Token: 0x04000D06 RID: 3334
     public double defense;
 
-    // Token: 0x04000CB7 RID: 3255
+    // Token: 0x04000D07 RID: 3335
     public float gold;
 
-    // Token: 0x04000CB8 RID: 3256
+    // Token: 0x04000D08 RID: 3336
     public double realGold;
 
-    // Token: 0x04000CB9 RID: 3257
+    // Token: 0x04000D09 RID: 3337
     public double attackMulti;
 
-    // Token: 0x04000CBA RID: 3258
+    // Token: 0x04000D0A RID: 3338
     public double defenseMulti;
 
-    // Token: 0x04000CBB RID: 3259
+    // Token: 0x04000D0B RID: 3339
     public double nextAttackMulti;
 
-    // Token: 0x04000CBC RID: 3260
+    // Token: 0x04000D0C RID: 3340
     public double nextDefenseMulti;
 
-    // Token: 0x04000CBD RID: 3261
+    // Token: 0x04000D0D RID: 3341
     public double oldBossMulti;
 
-    // Token: 0x04000CBE RID: 3262
+    // Token: 0x04000D0E RID: 3342
     public double timeMulti;
 
-    // Token: 0x04000CBF RID: 3263
+    // Token: 0x04000D0F RID: 3343
     public double oldTimeMulti;
 
-    // Token: 0x04000CC0 RID: 3264
+    // Token: 0x04000D10 RID: 3344
     public int exp;
 
-    // Token: 0x04000CC1 RID: 3265
+    // Token: 0x04000D11 RID: 3345
     public long realExp;
 
-    // Token: 0x04000CC2 RID: 3266
+    // Token: 0x04000D12 RID: 3346
     public float attackBoost;
 
-    // Token: 0x04000CC3 RID: 3267
+    // Token: 0x04000D13 RID: 3347
     public float defenseBoost;
 
-    // Token: 0x04000CC4 RID: 3268
+    // Token: 0x04000D14 RID: 3348
     public float energySpeed;
 
-    // Token: 0x04000CC5 RID: 3269
+    // Token: 0x04000D15 RID: 3349
     public long capEnergy;
 
-    // Token: 0x04000CC6 RID: 3270
+    // Token: 0x04000D16 RID: 3350
     public long curEnergy;
 
-    // Token: 0x04000CC7 RID: 3271
+    // Token: 0x04000D17 RID: 3351
     public long idleEnergy;
 
-    // Token: 0x04000CC8 RID: 3272
+    // Token: 0x04000D18 RID: 3352
     public long energyGained;
 
-    // Token: 0x04000CC9 RID: 3273
+    // Token: 0x04000D19 RID: 3353
     public int energyPerBar;
 
-    // Token: 0x04000CCA RID: 3274
+    // Token: 0x04000D1A RID: 3354
     public long energyBars;
 
-    // Token: 0x04000CCB RID: 3275
+    // Token: 0x04000D1B RID: 3355
     public float energyPower;
 
-    // Token: 0x04000CCC RID: 3276
+    // Token: 0x04000D1C RID: 3356
     public float energyBarProgress;
 
-    // Token: 0x04000CCD RID: 3277
+    // Token: 0x04000D1D RID: 3357
     public Training training;
 
-    // Token: 0x04000CCE RID: 3278
+    // Token: 0x04000D1E RID: 3358
     public int bossID;
 
-    // Token: 0x04000CCF RID: 3279
+    // Token: 0x04000D1F RID: 3359
     public double bossAttack;
 
-    // Token: 0x04000CD0 RID: 3280
+    // Token: 0x04000D20 RID: 3360
     public double bossDefense;
 
-    // Token: 0x04000CD1 RID: 3281
+    // Token: 0x04000D21 RID: 3361
     public double bossRegen;
 
-    // Token: 0x04000CD2 RID: 3282
+    // Token: 0x04000D22 RID: 3362
     public double bossCurHP;
 
-    // Token: 0x04000CD3 RID: 3283
+    // Token: 0x04000D23 RID: 3363
     public double bossMaxHP;
 
-    // Token: 0x04000CD4 RID: 3284
+    // Token: 0x04000D24 RID: 3364
     public double bossMulti;
 
-    // Token: 0x04000CD5 RID: 3285
+    // Token: 0x04000D25 RID: 3365
     public int highestBoss;
 
-    // Token: 0x04000CD6 RID: 3286
+    // Token: 0x04000D26 RID: 3366
     public int highestHardBoss;
 
-    // Token: 0x04000CD7 RID: 3287
+    // Token: 0x04000D27 RID: 3367
     public int highestSadisticBoss;
 
-    // Token: 0x04000CD8 RID: 3288
+    // Token: 0x04000D28 RID: 3368
     public bool firstBossEver;
 
-    // Token: 0x04000CD9 RID: 3289
+    // Token: 0x04000D29 RID: 3369
     public int currentHighestBoss;
 
-    // Token: 0x04000CDA RID: 3290
+    // Token: 0x04000D2A RID: 3370
     public Adventure adventure;
 
-    // Token: 0x04000CDB RID: 3291
+    // Token: 0x04000D2B RID: 3371
     public Inventory inventory;
 
-    // Token: 0x04000CDC RID: 3292
+    // Token: 0x04000D2C RID: 3372
     public AdvancedTraining advancedTraining;
 
-    // Token: 0x04000CDD RID: 3293
+    // Token: 0x04000D2D RID: 3373
     public Augmentation augments;
 
-    // Token: 0x04000CDE RID: 3294
+    // Token: 0x04000D2E RID: 3374
     public Magic magic;
 
-    // Token: 0x04000CDF RID: 3295
+    // Token: 0x04000D2F RID: 3375
     public TimeMachine machine;
 
-    // Token: 0x04000CE0 RID: 3296
+    // Token: 0x04000D30 RID: 3376
     public BloodMagic bloodMagic;
 
-    // Token: 0x04000CE1 RID: 3297
+    // Token: 0x04000D31 RID: 3377
     public PlayerTime rebirthTime;
 
-    // Token: 0x04000CE2 RID: 3298
+    // Token: 0x04000D32 RID: 3378
     public PlayerTime totalPlaytime;
 
-    // Token: 0x04000CE5 RID: 3301
+    // Token: 0x04000D33 RID: 3379
+    public UnityEngine.Random.State lootState;
+
+    // Token: 0x04000D34 RID: 3380
+    public UnityEngine.Random.State boostState;
+
+    // Token: 0x04000D35 RID: 3381
     public Purchases purchases;
 
-    // Token: 0x04000CE6 RID: 3302
+    // Token: 0x04000D36 RID: 3382
     public Stats stats;
 
-    // Token: 0x04000CE7 RID: 3303
+    // Token: 0x04000D37 RID: 3383
     public Perks perks;
 
-    // Token: 0x04000CE8 RID: 3304
+    // Token: 0x04000D38 RID: 3384
     public PlayerSettings settings;
 
-    // Token: 0x04000CE9 RID: 3305
+    // Token: 0x04000D39 RID: 3385
     public Challenges challenges;
 
-    // Token: 0x04000CEA RID: 3306
+    // Token: 0x04000D3A RID: 3386
     public Pit pit;
 
-    // Token: 0x04000CEB RID: 3307
+    // Token: 0x04000D3B RID: 3387
     public LootBoxes lootBoxes;
 
-    // Token: 0x04000CEC RID: 3308
+    // Token: 0x04000D3C RID: 3388
     public Wandoos98 wandoos98;
 
-    // Token: 0x04000CED RID: 3309
+    // Token: 0x04000D3D RID: 3389
     public Yggdrasil yggdrasil;
 
-    // Token: 0x04000CEE RID: 3310
+    // Token: 0x04000D3E RID: 3390
     public NUMBERSSGOUP NGU;
 
-    // Token: 0x04000CEF RID: 3311
+    // Token: 0x04000D3F RID: 3391
     public Arbitrary arbitrary;
 
-    // Token: 0x04000CF0 RID: 3312
+    // Token: 0x04000D40 RID: 3392
     public AchievementList achievements;
 
-    // Token: 0x04000CF1 RID: 3313
+    // Token: 0x04000D41 RID: 3393
     public DailyReward daily;
 
-    // Token: 0x04000CF2 RID: 3314
+    // Token: 0x04000D42 RID: 3394
     public Beards beards;
 
-    // Token: 0x04000CF3 RID: 3315
+    // Token: 0x04000D43 RID: 3395
     public GoldDiggers diggers;
 
-    // Token: 0x04000CF4 RID: 3316
+    // Token: 0x04000D44 RID: 3396
     public BeastQuest beastQuest;
 
-    // Token: 0x04000CF5 RID: 3317
+    // Token: 0x04000D45 RID: 3397
     public Resource3 res3;
 
-    // Token: 0x04000CF6 RID: 3318
+    // Token: 0x04000D46 RID: 3398
     public Hacks hacks;
 
-    // Token: 0x04000CF7 RID: 3319
+    // Token: 0x04000D47 RID: 3399
     public Wishes wishes;
 
-    // Token: 0x04000CF8 RID: 3320
+    // Token: 0x04000D48 RID: 3400
     public PlayerPortraits portraits;
 
-    // Token: 0x04000CF9 RID: 3321
+    // Token: 0x04000D49 RID: 3401
     public Bestiary bestiary;
+
+    // Token: 0x04000D4A RID: 3402
+    public Cards cards;
 }

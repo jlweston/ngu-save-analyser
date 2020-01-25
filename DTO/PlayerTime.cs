@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x02000082 RID: 130
+// Token: 0x02000093 RID: 147
 [Serializable]
 public class PlayerTime
 {
-    // Token: 0x0600091E RID: 2334 RVA: 0x00073D8D File Offset: 0x0007218D
+    // Token: 0x06000A20 RID: 2592 RVA: 0x0007D8A5 File Offset: 0x0007BCA5
     public PlayerTime()
     {
         this.totalseconds = 0.0;
@@ -14,42 +14,42 @@ public class PlayerTime
         this.days = 0;
     }
 
-    // Token: 0x0600091F RID: 2335 RVA: 0x00073DC8 File Offset: 0x000721C8
+    // Token: 0x06000A21 RID: 2593 RVA: 0x0007D8E0 File Offset: 0x0007BCE0
     public void setTime(float t)
     {
         this.totalseconds = (double)t;
         this.recalculateTime();
     }
 
-    // Token: 0x06000920 RID: 2336 RVA: 0x00073DD8 File Offset: 0x000721D8
+    // Token: 0x06000A22 RID: 2594 RVA: 0x0007D8F0 File Offset: 0x0007BCF0
     public void setTime(double t)
     {
         this.totalseconds = t;
         this.recalculateTime();
     }
 
-    // Token: 0x06000921 RID: 2337 RVA: 0x00073DE7 File Offset: 0x000721E7
+    // Token: 0x06000A23 RID: 2595 RVA: 0x0007D8FF File Offset: 0x0007BCFF
     public void advanceTime(float t)
     {
         this.totalseconds += (double)t;
         this.recalculateTime();
     }
 
-    // Token: 0x06000922 RID: 2338 RVA: 0x00073DFE File Offset: 0x000721FE
+    // Token: 0x06000A24 RID: 2596 RVA: 0x0007D916 File Offset: 0x0007BD16
     public void advanceTime(int time)
     {
         this.totalseconds += (double)time;
         this.recalculateTime();
     }
 
-    // Token: 0x06000923 RID: 2339 RVA: 0x00073E15 File Offset: 0x00072215
+    // Token: 0x06000A25 RID: 2597 RVA: 0x0007D92D File Offset: 0x0007BD2D
     public void removeTime(float amount)
     {
         this.totalseconds -= (double)amount;
         this.recalculateTime();
     }
 
-    // Token: 0x06000924 RID: 2340 RVA: 0x00073E2C File Offset: 0x0007222C
+    // Token: 0x06000A26 RID: 2598 RVA: 0x0007D944 File Offset: 0x0007BD44
     public string timeDisplay()
     {
         string empty = string.Empty;
@@ -92,13 +92,13 @@ public class PlayerTime
         return this.seconds.ToString("#0") + " seconds";
     }
 
-    // Token: 0x06000925 RID: 2341 RVA: 0x00073F80 File Offset: 0x00072380
+    // Token: 0x06000A27 RID: 2599 RVA: 0x0007DA98 File Offset: 0x0007BE98
     public string timeDisplayColon()
     {
         return NumberOutput.timeOutput(this.totalseconds);
     }
 
-    // Token: 0x06000926 RID: 2342 RVA: 0x00073F90 File Offset: 0x00072390
+    // Token: 0x06000A28 RID: 2600 RVA: 0x0007DAA8 File Offset: 0x0007BEA8
     public string timeDisplayColon(int time)
     {
         string result = string.Empty;
@@ -157,27 +157,27 @@ public class PlayerTime
         return num4.ToString("#0") + "s";
     }
 
-    // Token: 0x06000927 RID: 2343 RVA: 0x0007412C File Offset: 0x0007252C
+    // Token: 0x06000A29 RID: 2601 RVA: 0x0007DC44 File Offset: 0x0007C044
     public string inverseDisplay(double target)
     {
         double num = target - this.totalseconds;
         return NumberOutput.timeOutput(num);
     }
 
-    // Token: 0x06000928 RID: 2344 RVA: 0x00074148 File Offset: 0x00072548
+    // Token: 0x06000A2A RID: 2602 RVA: 0x0007DC60 File Offset: 0x0007C060
     public string inverseDisplayColon(double target)
     {
         double num = target - this.totalseconds;
         return NumberOutput.timeOutput(num);
     }
 
-    // Token: 0x06000929 RID: 2345 RVA: 0x00074164 File Offset: 0x00072564
+    // Token: 0x06000A2B RID: 2603 RVA: 0x0007DC7C File Offset: 0x0007C07C
     public bool atTargetTime(double t)
     {
         return this.totalseconds >= t;
     }
 
-    // Token: 0x0600092A RID: 2346 RVA: 0x00074175 File Offset: 0x00072575
+    // Token: 0x06000A2C RID: 2604 RVA: 0x0007DC8D File Offset: 0x0007C08D
     public void reset()
     {
         this.totalseconds = 0.0;
@@ -187,7 +187,7 @@ public class PlayerTime
         this.days = 0;
     }
 
-    // Token: 0x0600092B RID: 2347 RVA: 0x000741AC File Offset: 0x000725AC
+    // Token: 0x06000A2D RID: 2605 RVA: 0x0007DCC4 File Offset: 0x0007C0C4
     public void recalculateTime()
     {
         double num = this.totalseconds;
@@ -204,7 +204,7 @@ public class PlayerTime
         this.seconds = num;
     }
 
-    // Token: 0x0600092C RID: 2348 RVA: 0x00074244 File Offset: 0x00072644
+    // Token: 0x06000A2E RID: 2606 RVA: 0x0007DD5C File Offset: 0x0007C15C
     public int getTimeAsHighscore()
     {
         if (this.totalseconds > 2147483647.0)
@@ -214,18 +214,18 @@ public class PlayerTime
         return (int)this.totalseconds;
     }
 
-    // Token: 0x040006E1 RID: 1761
+    // Token: 0x0400078F RID: 1935
     public double totalseconds;
 
-    // Token: 0x040006E2 RID: 1762
+    // Token: 0x04000790 RID: 1936
     public double seconds;
 
-    // Token: 0x040006E3 RID: 1763
+    // Token: 0x04000791 RID: 1937
     public int minutes;
 
-    // Token: 0x040006E4 RID: 1764
+    // Token: 0x04000792 RID: 1938
     public int hours;
 
-    // Token: 0x040006E5 RID: 1765
+    // Token: 0x04000793 RID: 1939
     public int days;
 }
