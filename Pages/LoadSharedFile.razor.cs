@@ -17,12 +17,15 @@ namespace NGUSaveAnalyser.Pages
 
         protected override async void OnParametersSet()
         {
-            if(SaveId != null)
+            if(SaveId != null && !mainlayout.loadingFromApi)
             {
+                mainlayout.loadingFromApi = true;
                 var response = await JSRuntime.InvokeAsync<string>("getPlayerData", SaveId);
-                PlayerData data = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerData>(response);
-                mainlayout.SetPlayerData(data);
+                //PlayerData data = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerData>(response);
+                
+                mainlayout.SetPlayerData(mainlayout.DecodeToJSON(response));
                 NavigationManager.NavigateTo("/summary");
+                StateHasChanged();
             }
         }
     }

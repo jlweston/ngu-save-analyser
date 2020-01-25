@@ -17,7 +17,7 @@ namespace NGUSaveAnalyser.Pages
             saveId = mainlayout.saveId;
             if (mainlayout.ownSaveLoaded && !mainlayout.ownSaveShared)
             {
-                saveId = await JSRuntime.InvokeAsync<string>("postPlayerData", playerdatajson);
+                saveId = await JSRuntime.InvokeAsync<string>("postPlayerData", mainlayout.rawData);
                 mainlayout.SetOwnSaveShared(true);
                 mainlayout.SetOwnSaveId(saveId);
                 StateHasChanged();
