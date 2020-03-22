@@ -19,7 +19,7 @@ public class Yggdrasil
         this.totalLuck = 0L;
         this.totalPermStatBonus = 0L;
         this.permBonusOn = false;
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 21; i++)
         {
             this.fruits.Add(new Fruit());
         }
@@ -42,7 +42,7 @@ public class Yggdrasil
         this.statBonus = 0f;
         this.permBonusOn = false;
         this.permNumberBonusOn = false;
-        for (int i = 0; i < 13; i++)
+        for (int i = 0; i < 20; i++)
         {
             this.fruits[i].reset(this.resetFactor);
         }

@@ -10,7 +10,7 @@ namespace NGUSaveAnalyser.Pages
         [Inject] NavigationManager NavigationManager { get; set; }
         [CascadingParameter] protected PlayerData playerdata { get; set; }
 
-        private readonly int[] baseCosts = new int[] { 1, 10, 25, 40, 60, 100, 150, 170, 200, 2000, 15000, 30000, 50000, 100000 };
+        private readonly int[] baseCosts = new int[] { 1, 10, 25, 40, 60, 100, 150, 170, 200, 2000, 15000, 30000, 50000, 100000, 25000, 250000, 250000, 250000, 250000, 250000, 250000 };
         protected List<Fruit> fruits;
 
         protected async override void OnInitialized()
