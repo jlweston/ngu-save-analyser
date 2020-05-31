@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using NGUSaveAnalyser.Shared;
+using System.Threading.Tasks;
 
 namespace NGUSaveAnalyser.Pages
 {
@@ -22,6 +23,11 @@ namespace NGUSaveAnalyser.Pages
                 mainlayout.SetOwnSaveId(saveId);
                 StateHasChanged();
             }
+        }
+
+        protected async Task SaveAsJSON()
+        {
+            await JSRuntime.InvokeAsync<string>("saveFileAs", "ngusave.json", playerdatajson);
         }
     }
 }
