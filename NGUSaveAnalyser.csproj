@@ -16,7 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview9.19424.4" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
     <!--<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0" />-->
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="BlazorInputFile" Version="0.1.0-preview" />
   </ItemGroup>
 
